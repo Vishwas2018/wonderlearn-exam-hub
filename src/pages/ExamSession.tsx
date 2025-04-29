@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -64,9 +63,14 @@ const ExamSession = () => {
       // Set time limit in seconds
       setTimeLeft(foundExam.timeMinutes * 60);
       
-      // Get questions for this exam
-      const examQuestionSet = examQuestions[examId as keyof typeof examQuestions] || [];
-      setQuestions(examQuestionSet);
+      // Get questions for this exam and ensure they match the Question interface
+      const examQuestionSet = examId ? examQuestions[examId as keyof typeof examQuestions] || [] : [];
+      // Type assertion to ensure compatibility with the Question interface
+      const typedQuestions = examQuestionSet.map(q => ({
+        ...q,
+        type: q.type as 'mcq' | 'truefalse' | 'shortanswer'
+      }));
+      setQuestions(typedQuestions);
     } else {
       toast({
         title: "Exam not found",

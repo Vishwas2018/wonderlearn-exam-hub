@@ -57,7 +57,13 @@ const Exams = () => {
       filtered = filtered.filter(exam => exam.subject === subject);
     }
     
-    setFilteredExams(filtered);
+    // Use type assertion to ensure compatibility with the Exam interface
+    setFilteredExams(filtered.map(exam => ({
+      ...exam,
+      type: exam.type as 'free' | 'premium',
+      category: exam.category as 'NAPLAN' | 'ICAS',
+      subject: exam.subject as 'Maths' | 'Science' | 'Digital Technologies'
+    })));
   }, [category, yearLevel, subject]);
 
   const handleStartExam = (exam: Exam) => {
