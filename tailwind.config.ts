@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,33 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// WonderLearn theme colors
+				wonder: {
+					50: '#f0f7ff',
+					100: '#e0effe',
+					200: '#bae1fd',
+					300: '#7ccafb',
+					400: '#36acf7',
+					500: '#0c8de8',
+					600: '#0070c7',
+					700: '#0159a1',
+					800: '#084b85',
+					900: '#0c3f6f',
+					950: '#082745',
+				},
+				learn: {
+					50: '#fbf1ff',
+					100: '#f4e1fe',
+					200: '#ebcafe',
+					300: '#dea4fc',
+					400: '#cd72f8',
+					500: '#b247ee',
+					600: '#9d2edb',
+					700: '#8522b5',
+					800: '#711e94',
+					900: '#5e1a79',
+					950: '#3a0a51',
 				}
 			},
 			borderRadius: {
@@ -84,11 +112,21 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' }
+				},
+				'pulse-slow': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.8' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'float': 'float 5s ease-in-out infinite',
+				'pulse-slow': 'pulse-slow 3s ease-in-out infinite'
 			}
 		}
 	},
