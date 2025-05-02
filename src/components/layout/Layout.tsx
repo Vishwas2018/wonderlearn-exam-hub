@@ -15,11 +15,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const isExamSession = location.pathname.includes('/exam/session/');
   
   if (isExamSession) {
-    return <main className="min-h-screen">{children}</main>;
+    return <main className="min-h-screen bg-gradient-to-br from-background to-accent/20">{children}</main>;
   }
   
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-gradient-to-br from-background to-accent/20">
       <Header />
       <main className="flex-grow">
         {children}

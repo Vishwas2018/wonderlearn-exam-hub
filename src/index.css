@@ -14,17 +14,17 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 210 90% 40%;
+    --primary: 270 80% 50%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 270 70% 50%;
+    --secondary: 210 90% 50%;
     --secondary-foreground: 210 40% 98%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 270 70% 96%;
-    --accent-foreground: 270 70% 30%;
+    --accent: 270 80% 96%;
+    --accent-foreground: 270 80% 30%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -33,7 +33,7 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
   }
 }
 
@@ -49,11 +49,11 @@
 
 @layer components {
   .hero-gradient {
-    @apply bg-gradient-to-r from-wonder-600 to-learn-600 text-white;
+    @apply bg-gradient-to-r from-learn-600 to-wonder-600 text-white;
   }
   
   .button-gradient {
-    @apply bg-gradient-to-r from-wonder-600 to-learn-600 hover:from-wonder-700 hover:to-learn-700 text-white transition-all;
+    @apply bg-gradient-to-r from-learn-600 to-wonder-600 hover:from-learn-700 hover:to-wonder-700 text-white transition-all shadow-md hover:shadow-lg;
   }
 
   .pricing-tier-gradient {
@@ -62,5 +62,34 @@
   
   .pricing-tier-premium-gradient {
     @apply bg-gradient-to-b from-white to-learn-50;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+
+  .input-focus {
+    @apply focus:ring-2 focus:ring-learn-300 focus:border-learn-400;
+  }
+
+  .animated-bg {
+    @apply relative overflow-hidden;
+    background-image: linear-gradient(
+      125deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.3) 40%,
+      rgba(255, 255, 255, 0) 60%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -100% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
   }
 }
